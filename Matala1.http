@@ -1,0 +1,6 @@
+@Matala1_HostAddress = http://localhost:5109
+
+GET {{Matala1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
