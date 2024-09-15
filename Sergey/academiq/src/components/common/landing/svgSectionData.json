@@ -1,0 +1,24 @@
+[
+    {
+      "id": "time-management",
+      "imgSrc": "https://academiq-assets.s3.eu-north-1.amazonaws.com/time_landing.gif",
+      "altText": "Time Management",
+      "title": "Time Management",
+      "description": "Is the key to your success."
+    },
+    {
+      "id": "project-details",
+      "imgSrc": "https://academiq-assets.s3.eu-north-1.amazonaws.com/inside_landing.gif",
+      "altText": "Project Details",
+      "title": "Our services",
+      "description": "Explore the features of AcademIQ."
+    },
+    {
+      "id": "student-performance",
+      "imgSrc": "https://academiq-assets.s3.eu-north-1.amazonaws.com/studentA_landing.gif",
+      "altText": "Student Performance",
+      "title": "Student Performance",
+      "description": "Get the insights you need."
+    }
+  ]
+  
