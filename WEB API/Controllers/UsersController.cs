@@ -8,38 +8,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Net.Mail;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Text;
-
-/*
- 
- {
-    "id": 123123,
-    "firstName": "Misha",
-    "lastName": "kolomyza",
-    "school_Year": 2,
-    "phone": "0521236987",
-    "email": "aaa@aaa.com",
-    "picture_URL": "h",
-    "address": "Stam",
-    "city_Code": 1, 
-    "enrollment": "2024-09-15T10:28:22.313Z"
-  }
-
- {
-    "id": 222,
-    "firstName": "mmm",
-    "lastName": "kkk",
-    "school_Year": 2,
-    "phone": "0521236937",
-    "email": "bbb@bbb.com",
-    "picture_URL": "h",
-    "address": "Stam",
-    "city_Code": 1, 
-    "enrollment": "2024-09-15T10:28:22.313Z"
-  }
-
-
-*/
+using System.Threading.Tasks;
 
 namespace Matala1.Controllers
 {
@@ -55,7 +26,6 @@ namespace Matala1.Controllers
             _context = context;
             _configuration = configuration;
         }
-
 
         // Login
         [HttpPost("login")]
@@ -76,28 +46,29 @@ namespace Matala1.Controllers
             if (!PasswordHelper.VerifyPasswordHash(model.Password, user.PasswordHash))
                 return Unauthorized();
 
-            // Authentication successful
+            // Generate JWT token
+            var token = GenerateJwtToken(user);
 
-            var result = new object();
-            if (user.UserRole == 3)
-                result = await _context.Set<Student>().FirstOrDefaultAsync(s => s.Id == model.Id);
-            else if (user.UserRole == 2)
-                result = await _context.Set<Lecturer>().FirstOrDefaultAsync(l => l.Id == model.Id);
-            else if (user.UserRole == 1)
-                result = await _context.Set<Staff>().FirstOrDefaultAsync(st => st.Id == model.Id);
-
-            return Ok(result);
+            // Return token in response
+            return Ok(new { token, user.Id });
         }
 
         // Update User
         [HttpPut]
-        public async Task<IActionResult> UpdateUser([FromBody] User user)// How to use it
+        [Authorize] // Require authentication
+        public async Task<IActionResult> UpdateUser([FromBody] User user)
         {
-            return NoContent();
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            // Get the current logged-in user's ID
+            var currentUserId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            if (currentUserId != user.Id)
+            {
+                return Unauthorized("You are not authorized to update this user.");
             }
 
             _context.Entry(user).State = EntityState.Modified;
@@ -123,9 +94,10 @@ namespace Matala1.Controllers
 
         // Change Password
         [HttpPut("changepassword")]
+        [Authorize] // Require authentication
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordModel model)
         {
-            var user = await _context.Set<User>().FirstOrDefaultAsync(u => u.Id == model.Id);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == model.Id);
 
             if (user == null || !PasswordHelper.VerifyPasswordHash(model.OldPassword, user.PasswordHash) || user.Email != model.Email)
                 return BadRequest("One or More Fields Contain Incorrect Values");
@@ -169,11 +141,10 @@ namespace Matala1.Controllers
                 Id = student.Id,
                 Email = student.Email,
                 PasswordHash = passwordHash,
-                UserRole = 3
+                UserRole = "Student"
             };
 
-            _context.Set<User>().Add(user);
-            await _context.SaveChangesAsync();
+            _context.Users.Add(user);
 
             _context.Set<Student>().Add(student);
             await _context.SaveChangesAsync();
@@ -197,11 +168,10 @@ namespace Matala1.Controllers
                 Id = lecturer.Id,
                 Email = lecturer.Email,
                 PasswordHash = passwordHash,
-                UserRole = 2
+                UserRole = "Lecturer"
             };
 
             _context.Set<User>().Add(user);
-            await _context.SaveChangesAsync();
 
             _context.Set<Lecturer>().Add(lecturer);
             await _context.SaveChangesAsync();
@@ -225,12 +195,11 @@ namespace Matala1.Controllers
                 Id = staff.Id,
                 Email = staff.Email,
                 PasswordHash = passwordHash,
-                UserRole = 1
+                UserRole = "Staff"
+
             };
 
             _context.Set<User>().Add(user);
-            await _context.SaveChangesAsync();
-
 
             _context.Set<Staff>().Add(staff);
             await _context.SaveChangesAsync();
@@ -238,240 +207,119 @@ namespace Matala1.Controllers
             return Ok("Staff member registered successfully");
         }
 
-
-
-
         [HttpGet("getstudent/{id}")]
-        [Authorize(Roles = "Admin, Staff, Student")] // Allow only Admins and Students
+        [Authorize(Roles = "Admin, Staff, Student")]
         public async Task<IActionResult> GetStudentById(int id)
         {
-            if (!User.IsInRole("Admin") || !User.IsInRole("Student") || !User.IsInRole("Staff")) //if ConnectedUser.Token.GetId() != id
-            {
-                return Unauthorized("You are not authorized to access this student's data.");
-            }
-
-
-            var student = await _context.Set<Student>().FirstOrDefaultAsync(s => s.Id == id);
-
-            if (student == null)
-            {
-                return NotFound();
-            }
-
-
-            return Ok(student);
+            return await GetEntityById<Student>(id);
         }
 
         [HttpGet("getlecturer/{id}")]
-        [Authorize(Roles = "Admin, Staff, Lecturer")] // Allow only Admins and Lecturer
+        [Authorize(Roles = "Admin, Staff, Lecturer")]
         public async Task<IActionResult> GetLecturerById(int id)
         {
-            if (!User.IsInRole("Admin") || !User.IsInRole("Lecturer") || !User.IsInRole("Staff")) //if ConnectedUser.Token.GetId() != id
-            {
-                return Unauthorized("You are not authorized to access this Lecturer's data.");
-            }
-
-            var lecturer = await _context.Set<Lecturer>().FirstOrDefaultAsync(l => l.Id == id);
-
-            if (lecturer == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(lecturer);
+            return await GetEntityById<Lecturer>(id);
         }
 
         [HttpGet("getstaff/{id}")]
-        [Authorize(Roles = "Admin, Staff")] // Allow only Admins and Staff
+        [Authorize(Roles = "Admin, Staff")]
         public async Task<IActionResult> GetStaffById(int id)
         {
+            return await GetEntityById<Staff>(id);
+        }
 
-            if (!User.IsInRole("Admin") || !User.IsInRole("Staff")) //if ConnectedUser.Token.GetId() != id
+        private async Task<IActionResult> GetEntityById<T>(int id)
+             where T : class, IEntity
+        {
+            // Get the current logged-in user's ID from the JWT token
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (string.IsNullOrEmpty(currentUserId))
             {
-                return Unauthorized("You are not authorized to access this Staff's data.");
+                return BadRequest("User ID not found in token.");
             }
 
-            var Staff = await _context.Set<Staff>().FirstOrDefaultAsync(l => l.Id == id);
+            int userId = int.Parse(currentUserId);
 
-            if (Staff == null)
+            // Check if the current user is allowed to access the data
+            if (userId != id && !User.IsInRole("Admin") && !User.IsInRole("Staff"))
+            {
+                return Unauthorized($"You are not authorized to access this data.");
+            }
+
+            var entity = await _context.Set<T>().FirstOrDefaultAsync(e => e.Id == id);
+
+            if (entity == null)
             {
                 return NotFound();
             }
 
-
-            return Ok(Staff);
+            return Ok(entity);
         }
 
-        // Update Student (Admin and Student Only)
         [HttpPut("updatestudent/{id}")]
-        [Authorize(Roles = "Admin, Staff, Student")] // Allow only Admins and Students
+        //[Authorize(Roles = "Admin, Student")]
         public async Task<IActionResult> UpdateStudent(int id, [FromBody] Student student)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            if (id != student.Id)
-            {
-                return BadRequest("Query Id not equals to Student id");
-            }
-
-            // Get the current logged-in passResetSys's ID
-
-            //var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
-
-            var existingStudent = await _context.Students.FindAsync(student.Id);
-
-            if (existingStudent == null)
-            {
-                return NotFound();
-            }
-
-            // Check if the current passResetSys is the student or an admin
-
-            if (false)//if ConnectedUser.Token.GetId() != id
-            {
-                return Unauthorized("You are not authorized to update this student's data.");
-            }
-
-            // Update the student properties (map or use AutoMapper)
-
-            if (existingStudent.Email != student.Email)
-            {
-                var user = _context.Set<User>().FirstOrDefault(u => u.Id == student.Id);
-                if (user != null)
-                    user.Email = student.Email;
-            }
-            existingStudent.FirstName = student.FirstName;
-            existingStudent.LastName = student.LastName;
-            existingStudent.School_Year = student.School_Year;
-            existingStudent.Phone = student.Phone;
-            existingStudent.Email = student.Email;
-            existingStudent.Picture_URL = student.Picture_URL;
-            existingStudent.Address = student.Address;
-            existingStudent.City_Code = student.City_Code;
-            existingStudent.Enrollment = student.Enrollment;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!StudentExists(student.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent(); // Indicate successful update
+            return await UpdateEntity(id, student);
         }
 
-        // Update Lecturer (Admin and Lecturer Only)
         [HttpPut("updatelecturer/{id}")]
-        [Authorize(Roles = "Admin, Staff, Lecturer")]
+        [Authorize(Roles = "Admin, Lecturer")]
         public async Task<IActionResult> UpdateLecturer(int id, [FromBody] Lecturer lecturer)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            if (id != lecturer.Id)
-            {
-                return BadRequest("Query Id not equals to Lecturer id");
-            }
-
-            //var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-
-            var existingLecturer = await _context.Lecturers.FindAsync(lecturer.Id);
-
-            if (existingLecturer == null)
-            {
-                return NotFound();
-            }
-
-            if (false)
-            {
-                return Unauthorized("You are not authorized to update this Lecturer's data.");
-            }
-
-            existingLecturer.FirstName = lecturer.FirstName;
-            existingLecturer.LastName = lecturer.LastName;
-            existingLecturer.Phone = lecturer.Phone;
-            existingLecturer.Email = lecturer.Email;
-            existingLecturer.Academic_Degree = lecturer.Academic_Degree;
-            existingLecturer.Start_Date = lecturer.Start_Date;
-            existingLecturer.Address = lecturer.Address;
-            existingLecturer.City_Code = lecturer.City_Code;
-
-            var user = _context.Users.FirstOrDefault(u => u.Id == existingLecturer.Id);
-            if (user != null && user.Email != lecturer.Email)
-            {
-                user.Email = lecturer.Email;
-            }
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!LecturerExists(lecturer.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            return await UpdateEntity(id, lecturer);
         }
 
-        // Update Staff (Admin and Staff Only)
         [HttpPut("updatestaff/{id}")]
         [Authorize(Roles = "Admin, Staff")]
         public async Task<IActionResult> UpdateStaff(int id, [FromBody] Staff staff)
         {
+            return await UpdateEntity(id, staff);
+        }
+        // Helper function for updating entities
+        private async Task<IActionResult> UpdateEntity<T>(int id, T entity)
+            where T : class, IEntity
+        {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            if (id != staff.Id)
+
+            if (id != entity.Id)
             {
-                return BadRequest("Query Id not equals to Staff id");
+                return BadRequest("Query Id not equals to entity id");
             }
 
-            //var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+            // Get the current logged-in user's ID from the JWT token
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            var existingStaff = await _context.Staff.FindAsync(staff.Id);
+            if (string.IsNullOrEmpty(currentUserId))
+            {
+                return BadRequest("User ID not found in token.");
+            }
 
-            if (existingStaff == null)
+            int userId = int.Parse(currentUserId);
+
+
+            var existingEntity = await _context.Set<T>().FindAsync(entity.Id);
+
+            if (existingEntity == null)
             {
                 return NotFound();
             }
 
-            if (false)
+            // Check if the current user is allowed to update the entity
+            if (userId != existingEntity.Id && !User.IsInRole("Admin") && !User.IsInRole("Staff"))
             {
-                return Unauthorized("You are not authorized to update this Staff's data.");
+                return Unauthorized("You are not authorized to update this entity.");
             }
 
-            existingStaff.FirstName = staff.FirstName;
-            existingStaff.LastName = staff.LastName;
-            existingStaff.Phone = staff.Phone;
-            existingStaff.Email = staff.Email;
-            existingStaff.Role_code = staff.Role_code;
+            _context.Entry(existingEntity).CurrentValues.SetValues(entity);
 
-            var user = _context.Users.FirstOrDefault(u => u.Id == existingStaff.Id);
-            if (user != null && user.Email != staff.Email)
-            {
-                user.Email = staff.Email;
-            }
+            var user = _context.Set<User>().FirstOrDefault(u => u.Id == entity.Id);
+            if (user != null && user.Email != entity.Email)
+                user.Email = entity.Email;
 
             try
             {
@@ -479,7 +327,7 @@ namespace Matala1.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!StaffExists(staff.Id))
+                if (!EntityExists<T>(entity.Id))
                 {
                     return NotFound();
                 }
@@ -492,8 +340,11 @@ namespace Matala1.Controllers
             return NoContent();
         }
 
+        private bool EntityExists<T>(int id) where T : class, IEntity
+        {
+            return _context.Set<T>().Any(e => e.Id == id);
 
-
+        }
 
         // Request Password Reset
         [HttpPost("passwordreset/request")]
@@ -512,9 +363,9 @@ namespace Matala1.Controllers
                 return Ok("Password reset email sent.");
             }
 
-            var resetToken = GenerateRandomToken();
+            string resetToken = GenerateRandomToken();
 
-            var passResetSys = new PasswordResetSys
+            PasswordResetSys passResetSys = new PasswordResetSys
             {
                 Id = user.Id,
                 Email = user.Email,
@@ -576,7 +427,6 @@ namespace Matala1.Controllers
             // Clear the reset token
             _context.PasswordResetSys.Remove(passResetSys);
 
-
             try
             {
                 await _context.SaveChangesAsync();
@@ -588,7 +438,6 @@ namespace Matala1.Controllers
 
             return Ok("Password reset successfully.");
         }
-
 
         // Helper Functions
         private bool UserExists(int id)
@@ -608,6 +457,29 @@ namespace Matala1.Controllers
             return _context.Staff.Any(e => e.Id == id);
         }
 
+        private string GenerateJwtToken(User user)
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[]
+            {
+                //new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Role, user.UserRole.ToString()),
+            };
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration["Jwt:Issuer"],
+                audience: _configuration["Jwt:Audience"],
+                claims: claims,
+                expires: DateTime.Now.AddMinutes(30),
+                signingCredentials: credentials
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
 
         private string GenerateRandomToken(int length = 64)
         {
@@ -622,27 +494,6 @@ namespace Matala1.Controllers
             }
 
             return token.ToString();
-        }
-        private string GenerateJwtToken(int userId, string role)
-        {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]); // Get the key from appsettings.json
-
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
-                    new Claim(ClaimTypes.Role, role) // Add the role to the token
-                }),
-                Expires = DateTime.UtcNow.AddMinutes(30),
-                Issuer = _configuration["Jwt:Issuer"],
-                Audience = _configuration["Jwt:Audience"],
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
         }
 
         private async Task SendPasswordResetEmail(string email, string resetToken)
@@ -685,9 +536,5 @@ namespace Matala1.Controllers
         {
             return $"http://localhost:3000/passwordreset?token={resetToken}"; //TODO
         }
-
     }
-
 }
-
-

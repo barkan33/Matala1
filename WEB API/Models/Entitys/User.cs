@@ -11,7 +11,7 @@ namespace Matala1.Models.Entities
         [Required]
         public byte[] PasswordHash { get; set; }
         [Required]
-        public short UserRole { get; set; }
+        public string UserRole { get; set; }
 
     }
 }

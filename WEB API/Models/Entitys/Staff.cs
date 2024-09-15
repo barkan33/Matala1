@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Matala1.Models.Entities
 {
-    public class Staff
+    public class Staff : IEntity
     {
         [Key]
         public int Id { get; set; }

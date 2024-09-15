@@ -206,3 +206,4 @@ C:\Users\misha\OneDrive\Desktop\Server Side\Matala1\WEB API\obj\Debug\net8.0\sco
 C:\Users\misha\OneDrive\Desktop\Server Side\Matala1\WEB API\obj\Debug\net8.0\Matala1.csproj.Up2Date
 C:\Users\misha\OneDrive\Desktop\Server Side\Matala1\WEB API\obj\Debug\net8.0\Matala1.genruntimeconfig.cache
 C:\Users\misha\OneDrive\Desktop\Server Side\Matala1\WEB API\obj\Debug\net8.0\ref\Matala1.dll
+C:\Users\misha\OneDrive\Desktop\Server Side\Matala1\WEB API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

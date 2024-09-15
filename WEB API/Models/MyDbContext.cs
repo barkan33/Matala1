@@ -1,8 +1,7 @@
-﻿using Matala1.Models;
-using Matala1.Models.Entities;
+﻿using Matala1.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Matala1
+namespace Matala1.Models
 {
     public class MyDbContext : DbContext
     {

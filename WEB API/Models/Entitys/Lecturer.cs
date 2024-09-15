@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Matala1.Models.Entities
 {
-    public class Lecturer
+    public class Lecturer : IEntity
     {
 
         [Key]

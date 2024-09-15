@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Matala1.Models.Entities
 {
 
-    public class Student
+    public class Student : IEntity
     {
         [Key]
         public int Id { get; set; }
