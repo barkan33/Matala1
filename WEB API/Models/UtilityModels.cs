@@ -1,4 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Matala1.Models.Entities;
+using Microsoft.IdentityModel.Tokens;
+using System.ComponentModel.DataAnnotations;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -124,4 +128,43 @@ namespace Matala1.Models
         public string NewPassword { get; set; }
     }
 
+
+    public class UserButtonClicks
+    {
+        [Key]
+
+        public int UserId { get; set; }
+        [Required]
+
+        public int ButtonId { get; set; }
+        [Required]
+
+        public int ClickCount { get; set; }
+        [Required]
+
+        public DateTime LastClickTimestamp { get; set; }
+    }
+    public class Button
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
+        public string ButtonName { get; set; }
+
+        [Required]
+        public int DefaultSize { get; set; }
+
+        [Required]
+        public int MaxSize { get; set; }
+
+        [Required]
+        public decimal SizeFactor { get; set; }
+    }
+    public class ButtonSize
+    {
+        public int Id { get; set; }
+        public int Size { get; set; }
+        public DateTime LastClickTimestamp { get; set; }
+    }
 }

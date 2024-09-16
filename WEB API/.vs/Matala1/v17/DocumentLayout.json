@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\controllers\\passwordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:controllers\\passwordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\controllers\\registrationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:controllers\\registrationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\controllers\\buttoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:controllers\\buttoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,36 +30,75 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ValuesController.cs",
+              "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\ValuesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ValuesController.cs",
+              "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\ValuesController.cs",
+              "RelativeToolTip": "Controllers\\ValuesController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T12:29:11.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegistrationController.cs",
+              "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\RegistrationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RegistrationController.cs",
+              "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\RegistrationController.cs",
+              "RelativeToolTip": "Controllers\\RegistrationController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T11:07:35.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ButtonController.cs",
+              "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\ButtonController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ButtonController.cs",
+              "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\ButtonController.cs",
+              "RelativeToolTip": "Controllers\\ButtonController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T09:52:27.404Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAABOAAAA",
+              "DocumentIndex": 0,
+              "Title": "PasswordController.cs",
+              "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\PasswordController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PasswordController.cs",
+              "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\PasswordController.cs",
+              "RelativeToolTip": "Controllers\\PasswordController.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAAAIwEgAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T16:43:13.368Z",
+              "WhenOpened": "2024-09-16T09:52:36.638Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
               "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\UsersController.cs",
               "RelativeToolTip": "Controllers\\UsersController.cs",
-              "ViewState": "AQIAAM4BAAAAAAAAAAAswPMBAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFEAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T10:19:09.229Z",
+              "WhenOpened": "2024-09-16T07:36:51.897Z",
               "EditorCaption": ""
             }
           ]

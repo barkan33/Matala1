@@ -20,5 +20,8 @@ namespace Matala1.Models
         public DbSet<RoleCode> RoleCodes { get; set; }
 
         public DbSet<PasswordResetSys> PasswordResetSys { get; set; }
+
+        public DbSet<UserButtonClicks> UserButtonClicks { get; set; }
+        public DbSet<Button> Buttons { get; set; }
     }
 }
