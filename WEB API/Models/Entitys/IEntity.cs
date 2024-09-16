@@ -1,10 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Matala1.Models.Entities
 {
-
-    public class Student : IEntity
+    public interface IEntity
     {
         [Key]
         public int Id { get; set; }
@@ -13,20 +11,10 @@ namespace Matala1.Models.Entities
         [Required]
         public string LastName { get; set; }
         [Required]
-        public short School_Year { get; set; }
-        [Required]
         [Phone]
         public string Phone { get; set; }
         [Required]
-        [EmailAddress]
         public string Email { get; set; }
-        public string? Picture_URL { get; set; }
-        [Required]
-        public string? Address { get; set; }
         public int? City_Code { get; set; }
-        public DateTime Enrollment { get; set; }
-
-        public ICollection<StudentCourses>? StudentCourses { get; set; }
     }
-
 }

@@ -1,6 +1,8 @@
 ﻿using Matala1.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -8,27 +10,118 @@ using System.Text;
 
 namespace Matala1.Models
 {
-    public interface IEntity
+
+    public class Course
     {
         [Key]
         public int Id { get; set; }
+
         [Required]
-        public string FirstName { get; set; }
+        public string CourseName { get; set; }
+
         [Required]
-        public string LastName { get; set; }
-        [Required]
-        [Phone]
-        public string Phone { get; set; }
-        [Required]
-        public string Email { get; set; }
-    }
-    public enum UserRole
-    {
-        Student = 1,
-        Lecturer = 2,
-        Staff = 3
+        public int LecturerId { get; set; }
+
+        public string Classroom { get; set; }
+
+        //[ForeignKey("LecturerId")]
+        public Lecturer Lecturer { get; set; }
+
+        public List<StudentCourses>? StudentCourses { get; set; } = new List<StudentCourses>();
+
+        public List<Assignment> Assignments { get; set; } = new List<Assignment>();
+
+        public List<Exam> Exams { get; set; } = new List<Exam>();
     }
 
+
+    [PrimaryKey(nameof(StudentId), nameof(CourseId))]
+    public class StudentCourses
+    {
+        [Required]
+        public int StudentId { get; set; }
+        [Required]
+        public int CourseId { get; set; }
+
+        public Course Course { get; set; }
+    }
+
+    public class Assignment
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
+        public int CourseId { get; set; }
+
+        [Required]
+        public string Title { get; set; }
+
+        public string Description { get; set; }
+
+        [Required]
+        public DateTime Deadline { get; set; }
+
+        public bool IsVisible { get; set; } = true;
+
+        [ForeignKey("CourseId")]
+        public Course? Course { get; set; }
+
+        public List<StudentAssignments>? StudentAssignments { get; set; } = new List<StudentAssignments>();
+    }
+
+    [PrimaryKey(nameof(StudentId), nameof(AssignmentId))]
+    public class StudentAssignments
+    {
+        [Required]
+        public int StudentId { get; set; }
+
+        [Required]
+        public int AssignmentId { get; set; }
+
+        public string SubmissionStatus { get; set; }
+
+        public DateTime? SubmissionTimestamp { get; set; }
+
+        public int? Grade { get; set; }
+
+        public Student Student { get; set; }
+        public Assignment Assignment { get; set; }
+    }
+    public class Exam
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
+        public int CourseId { get; set; }
+
+        [Required]
+        public DateTime ExamDate { get; set; }
+
+        public string Description { get; set; }
+
+        [ForeignKey("CourseId")]
+        public Course Course { get; set; }
+
+        public List<StudentExamGrades> StudentExamGrades { get; set; } = new List<StudentExamGrades>();
+    }
+
+    [PrimaryKey(nameof(StudentId), nameof(ExamId))]
+    public class StudentExamGrades
+    {
+        [Required]
+
+        public int StudentId { get; set; }
+        [Required]
+
+        public int ExamId { get; set; }
+
+        public int? Grade { get; set; }
+
+        public Student Student { get; set; }
+        public Exam Exam { get; set; }
+    }
     public class City
     {
         [Key]

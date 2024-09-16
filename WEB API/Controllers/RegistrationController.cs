@@ -18,17 +18,63 @@ namespace Matala1.Controllers
             _context = context;
         }
 
-        [HttpPost("{role}")]
-        public async Task<IActionResult> RegisterUser(string role, [FromBody] IEntity user)
+
+        [HttpPost("student")]
+        public async Task<IActionResult> RegisterStudent([FromBody] Student student)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (!IsValidRole(role))
+
+            if (student.School_Year <= 0)
             {
-                return BadRequest("Invalid user role.");
+                return BadRequest("Missing required fields for student registration.");
+            }
+            if (student.Enrollment == null || student.Enrollment == default(DateTime))
+            {
+                student.Enrollment = DateTime.Now;
+            }
+
+            return await RegisterUser(student, "Student");
+        }
+
+        [HttpPost("lecturer")]
+        public async Task<IActionResult> RegisterLecturer([FromBody] Lecturer lecturer)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            if (lecturer.Start_Date == default(DateTime))
+            {
+                lecturer.Start_Date = DateTime.Now;
+            }
+            return await RegisterUser(lecturer, "Lecturer");
+        }
+
+
+        [HttpPost("staff")]
+        public async Task<IActionResult> RegisterStaff([FromBody] Staff staff)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+
+            return await RegisterUser(staff, "Staff");
+        }
+
+        private async Task<IActionResult> RegisterUser(IEntity user, string role)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
             }
 
             byte[] passwordHash = PasswordHelper.HashPassword(user.Id.ToString());
@@ -40,6 +86,7 @@ namespace Matala1.Controllers
                 PasswordHash = passwordHash,
                 UserRole = role
             };
+
 
             _context.Users.Add(newUser);
 
@@ -61,11 +108,6 @@ namespace Matala1.Controllers
             await _context.SaveChangesAsync();
 
             return Ok($"{role} registered successfully");
-        }
-
-        private bool IsValidRole(string role)
-        {
-            return role == "Student" || role == "Lecturer" || role == "Staff";
         }
     }
 }

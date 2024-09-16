@@ -23,5 +23,10 @@ namespace Matala1.Models
 
         public DbSet<UserButtonClicks> UserButtonClicks { get; set; }
         public DbSet<Button> Buttons { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Assignment> Assignments { get; set; }
+        public DbSet<Exam> Exams { get; set; }
+        public DbSet<StudentCourses> StudentCourses { get; set; }
+
     }
 }

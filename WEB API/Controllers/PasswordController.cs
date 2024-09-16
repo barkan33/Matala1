@@ -30,7 +30,7 @@ namespace Matala1.Controllers
         }
 
 
-        [HttpPut("password/change")]
+        [HttpPut("change")]
         [Authorize]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordModel model)
         {
@@ -80,7 +80,7 @@ namespace Matala1.Controllers
         }
 
 
-        [HttpPost("password/reset-request")]
+        [HttpPost("reset-request")]
         public async Task<IActionResult> RequestPasswordReset([FromBody] PasswordResetRequestModel model)
         {
             if (!ModelState.IsValid)
@@ -124,7 +124,7 @@ namespace Matala1.Controllers
         }
 
 
-        [HttpPut("password/reset")]
+        [HttpPut("reset")]
         public async Task<IActionResult> ResetPassword([FromBody] PasswordResetModel model)
         {
             if (!ModelState.IsValid)

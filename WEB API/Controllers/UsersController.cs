@@ -77,15 +77,6 @@ namespace Matala1.Controllers
         }
 
 
-
-        [HttpGet("student/{id}")]
-        [Authorize(Roles = "Admin, Staff, Student")]
-        public async Task<IActionResult> GetStudentById(int id)
-        {
-            return await GetEntityById<Student>(id);
-        }
-
-
         [HttpGet("lecturer/{id}")]
         [Authorize(Roles = "Admin, Staff, Lecturer")]
         public async Task<IActionResult> GetLecturerById(int id)
