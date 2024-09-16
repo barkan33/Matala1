@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\controllers\\lecturercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:controllers\\lecturercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\controllers\\staffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:controllers\\staffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\models\\utilitymodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -18,37 +30,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\StudentController.cs",
+              "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "Controllers\\StudentController.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAowAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T19:16:05.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "StaffController.cs",
+              "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\StaffController.cs",
+              "RelativeDocumentMoniker": "Controllers\\StaffController.cs",
+              "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\StaffController.cs",
+              "RelativeToolTip": "Controllers\\StaffController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T18:56:30.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LecturerController.cs",
+              "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\LecturerController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LecturerController.cs",
+              "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\LecturerController.cs",
+              "RelativeToolTip": "Controllers\\LecturerController.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAgwAAAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T18:55:01.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "CourseController.cs",
               "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\CourseController.cs",
               "RelativeDocumentMoniker": "Controllers\\CourseController.cs",
               "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\CourseController.cs",
               "RelativeToolTip": "Controllers\\CourseController.cs",
-              "ViewState": "AQIAAG8AAAAAAAAAAAAcwIcAAAAAAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAQAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-16T18:45:28.063Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "UtilityModels.cs",
               "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Models\\UtilityModels.cs",
               "RelativeDocumentMoniker": "Models\\UtilityModels.cs",
               "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Models\\UtilityModels.cs",
               "RelativeToolTip": "Models\\UtilityModels.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAiwEAAAAATAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEAAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-16T17:50:26.734Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             }
           ]
         }
