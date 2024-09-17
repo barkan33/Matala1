@@ -129,30 +129,6 @@ namespace Matala1.Models
         public string CityName { get; set; }
     }
 
-
-
-    public class Building
-    {
-        [Key]
-        public int BuildingCode { get; set; }
-        public string BuildingName { get; set; }
-    }
-
-    public class Room
-    {
-        [Key]
-        public int RoomCode { get; set; }
-        public string RoomName { get; set; }
-        public Building Building { get; set; }
-    }
-    public class Department
-    {
-        [Key]
-        public int DepartmentCode { get; set; }
-        public string DepartmentName { get; set; }
-        public int? HODId { get; set; }
-    }
-
     public class PasswordResetSys
     {
         [Required]
