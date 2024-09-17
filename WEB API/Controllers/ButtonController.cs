@@ -32,6 +32,7 @@ public class ButtonController : ControllerBase
         }
 
         int userId = int.Parse(currentUserId);
+        Console.WriteLine(userId);
 
 
         var buttons = await _context.Buttons.ToListAsync();
@@ -65,7 +66,7 @@ public class ButtonController : ControllerBase
     }
 
 
-
+    //TODO: Bug, add click to all buttons
     [HttpPost("{buttonId}")]
     public async Task<IActionResult> RegisterButtonClick(int buttonId)
     {
@@ -79,10 +80,11 @@ public class ButtonController : ControllerBase
 
         int userId = int.Parse(currentUserId);
 
+        // Try to find the existing button click record for the user and button
         var buttonClicks = await _context.UserButtonClicks
             .FirstOrDefaultAsync(c => c.UserId == userId && c.ButtonId == buttonId);
 
-        // First click, create a new record
+        // If the record doesn't exist, create a new one
         if (buttonClicks == null)
         {
             buttonClicks = new UserButtonClicks
@@ -96,22 +98,23 @@ public class ButtonController : ControllerBase
         }
         else
         {
+            // Increment the click count and update the timestamp
             buttonClicks.ClickCount++;
             buttonClicks.LastClickTimestamp = DateTime.Now;
         }
-        Console.WriteLine("buttonClicks: " + buttonClicks.UserId);
+
         try
         {
             await _context.SaveChangesAsync();
         }
         catch (Exception e)
         {
-
             return BadRequest(e.Message);
         }
 
         return Ok();
     }
+
 
 
 }

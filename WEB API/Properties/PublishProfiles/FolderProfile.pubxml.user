@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\misha\OneDrive\Desktop\Server Side\Matala1\WEB API\bin\Release\net8.0\publish\</_PublishTargetUrl>
-    <History>True|2024-09-17T11:48:38.4599337Z||;True|2024-09-17T14:48:01.5767804+03:00||;True|2024-06-18T22:48:01.1638467+03:00||;</History>
+    <History>True|2024-09-17T18:52:47.3377386Z||;True|2024-09-17T20:53:28.6003176+03:00||;True|2024-09-17T20:42:07.6654063+03:00||;True|2024-09-17T20:12:47.0562883+03:00||;True|2024-09-17T14:48:38.4599337+03:00||;True|2024-09-17T14:48:01.5767804+03:00||;True|2024-06-18T22:48:01.1638467+03:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

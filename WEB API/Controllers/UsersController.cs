@@ -49,8 +49,25 @@ namespace Matala1.Controllers
             // Generate JWT token
             var token = GenerateJwtToken(user);
 
-            // Return token in response
-            return Ok(new { token, user.Id });
+            // Find the user in the appropriate table based on the UserRole
+            object userData = null;
+            switch (user.UserRole)
+            {
+                case "Student":
+                    userData = await _context.Students.FirstOrDefaultAsync(s => s.Id == user.Id);
+                    break;
+                case "Lecturer":
+                    userData = await _context.Lecturers.FirstOrDefaultAsync(l => l.Id == user.Id);
+                    break;
+                case "Staff":
+                    userData = await _context.Staff.FirstOrDefaultAsync(s => s.Id == user.Id);
+                    break;
+                default:
+                    break;
+            }
+
+            // Return token and user data in response
+            return Ok(new { token, userData });
         }
 
         private string GenerateJwtToken(User user)

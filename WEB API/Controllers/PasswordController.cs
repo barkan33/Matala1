@@ -16,7 +16,6 @@ namespace Matala1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class PasswordController : ControllerBase
     {
         private readonly MyDbContext _context;
@@ -120,7 +119,7 @@ namespace Matala1.Controllers
                 return StatusCode(500, "Error sending password reset email.");
             }
 
-            return Ok("Password reset email sent.");
+            return Ok(new { message = "Password reset email sent." });
         }
 
 
@@ -231,7 +230,7 @@ namespace Matala1.Controllers
         //TODO: Change To Real URL
         private string GetResetLink(string resetToken)
         {
-            return $"http://localhost:3000/passwordreset?token={resetToken}"; //TODO
+            return $"http://localhost:5173/passwordreset?token={resetToken}"; //TODO
         }
 
     }

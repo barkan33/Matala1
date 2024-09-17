@@ -22,6 +22,7 @@ namespace Matala1.Controllers
         [HttpPost("student")]
         public async Task<IActionResult> RegisterStudent([FromBody] Student student)
         {
+            Console.WriteLine("resgistration");
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
