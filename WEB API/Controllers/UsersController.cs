@@ -94,6 +94,22 @@ namespace Matala1.Controllers
         }
 
 
+        [HttpPost("new-token")]
+        [Authorize]
+        public async Task<IActionResult> RefreshToken()
+        {
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(currentUserId))
+            {
+                return Unauthorized();
+            }
+            var user = await _context.Users.FindAsync(int.Parse(currentUserId));
+
+            var token = GenerateJwtToken(user);
+
+            return Ok(new { token });
+        }
+
         [HttpGet("lecturer/{id}")]
         [Authorize(Roles = "Admin, Staff, Lecturer")]
         public async Task<IActionResult> GetLecturerById(int id)
@@ -146,14 +162,14 @@ namespace Matala1.Controllers
         //{
 
         //    // Get the current logged-in user's ID from the JWT token
-        //    var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        //    var currentUser = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-        //    if (string.IsNullOrEmpty(currentUserId))
+        //    if (string.IsNullOrEmpty(currentUser))
         //    {
         //        return BadRequest("User ID not found in token.");
         //    }
 
-        //    int userId = int.Parse(currentUserId);
+        //    int userId = int.Parse(currentUser);
 
         //    if (userId != model.Id && !User.IsInRole("Admin") && !User.IsInRole("Staff"))
         //    {
@@ -372,9 +388,9 @@ namespace Matala1.Controllers
         //    }
 
         //    // Get the current logged-in user's ID
-        //    var currentUserId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        //    var currentUser = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-        //    if (currentUserId != user.Id && !User.IsInRole("Admin"))
+        //    if (currentUser != user.Id && !User.IsInRole("Admin"))
         //    {
         //        return Unauthorized("You are not authorized to update this user.");
         //    }
@@ -435,14 +451,14 @@ namespace Matala1.Controllers
         //    }
 
         //    // Get the current logged-in user's ID from the JWT token
-        //    var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        //    var currentUser = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-        //    if (string.IsNullOrEmpty(currentUserId))
+        //    if (string.IsNullOrEmpty(currentUser))
         //    {
         //        return BadRequest("User ID not found in token.");
         //    }
 
-        //    int userId = int.Parse(currentUserId);
+        //    int userId = int.Parse(currentUser);
 
 
         //    var existingEntity = await _context.Set<T>().FindAsync(entity.Id);
