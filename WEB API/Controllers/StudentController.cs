@@ -105,7 +105,7 @@ namespace Matala1.Controllers
             }
 
             // Add the enrollment record
-            _context.StudentCourses.Add(new StudentCourses
+            _context.StudentCourses.Add(new StudentCourse
             {
                 StudentId = studentId,
                 CourseId = courseId

@@ -26,7 +26,7 @@ namespace Matala1.Models.Entities
         public int? City_Code { get; set; }
         public DateTime Enrollment { get; set; }
 
-        public ICollection<StudentCourses>? StudentCourses { get; set; }
+        public ICollection<StudentCourse>? StudentCourses { get; set; }
     }
 
 }

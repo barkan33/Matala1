@@ -26,7 +26,10 @@ namespace Matala1.Models
         public DbSet<Course> Courses { get; set; }
         public DbSet<Assignment> Assignments { get; set; }
         public DbSet<Exam> Exams { get; set; }
-        public DbSet<StudentCourses> StudentCourses { get; set; }
+        public DbSet<StudentCourse> StudentCourses { get; set; }
+        public DbSet<StudentLesson> StudentLessons { get; set; }
+        public DbSet<Lesson> Lessons { get; set; }
+        public DbSet<WeekDay> WeekDays { get; set; }
 
     }
 }

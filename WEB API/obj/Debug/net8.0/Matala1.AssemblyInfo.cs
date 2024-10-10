@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Matala1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38907fe4ef9637d9db43919fdac48bd52193219e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f4d02e76b152889e12d804947588d45753468148")]
 [assembly: System.Reflection.AssemblyProductAttribute("Matala1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Matala1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

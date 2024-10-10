@@ -250,7 +250,7 @@ VALUES (2, 1, 'Present', '2024-02-26');
 
 
   
-
+select * from StudentLessons
 
 
 

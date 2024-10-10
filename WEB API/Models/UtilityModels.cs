@@ -27,7 +27,7 @@ namespace Matala1.Models
         //[ForeignKey("LecturerId")]
         public Lecturer Lecturer { get; set; }
 
-        public List<StudentCourses>? StudentCourses { get; set; } = new List<StudentCourses>();
+        public List<StudentCourse>? StudentCourses { get; set; } = new List<StudentCourse>();
 
         public List<Assignment> Assignments { get; set; } = new List<Assignment>();
 
@@ -36,7 +36,7 @@ namespace Matala1.Models
 
 
     [PrimaryKey(nameof(StudentId), nameof(CourseId))]
-    public class StudentCourses
+    public class StudentCourse
     {
         [Required]
         public int StudentId { get; set; }
@@ -235,5 +235,78 @@ namespace Matala1.Models
         public int Id { get; set; }
         public int Size { get; set; }
         public DateTime LastClickTimestamp { get; set; }
+    }
+
+    public class WeekDay
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
+        public string DayName { get; set; }
+    }
+
+    public class Lesson
+    {
+        [Key]
+        public int? Id { get; set; }
+
+        [Required]
+        public int CourseId { get; set; }
+
+        [Required]
+        public int WeekDayId { get; set; }
+
+        public string Classroom { get; set; }
+
+        [Required]
+        public TimeSpan StartTime { get; set; }
+
+        [Required]
+        public TimeSpan EndTime { get; set; }
+
+        // Navigation properties
+        public Course? Course { get; set; }
+        public WeekDay? WeekDay { get; set; }
+        public ICollection<StudentLesson>? StudentLessons { get; set; }
+    }
+    public class TempLesson
+    {
+        public int? Id { get; set; }
+
+        [Required]
+        public int CourseId { get; set; }
+
+        [Required]
+        public int WeekDayId { get; set; }
+
+        public string Classroom { get; set; }
+
+        [Required]
+        public string StartTime { get; set; }
+
+        [Required]
+        public string EndTime { get; set; }
+
+    }
+
+    [PrimaryKey(nameof(StudentId), nameof(LessonId), nameof(LessonDate))]
+    public class StudentLesson
+    {
+        [Required]
+        public int StudentId { get; set; }
+
+        [Required]
+        public int LessonId { get; set; }
+
+        [Required]
+        public DateTime LessonDate { get; set; }
+
+        [Required]
+        public string Attendance { get; set; }
+
+        // Navigation properties
+        public Student? Student { get; set; }
+        public Lesson? Lesson { get; set; }
     }
 }
