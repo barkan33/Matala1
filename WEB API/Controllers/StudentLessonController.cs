@@ -76,7 +76,7 @@ namespace Matala1.Controllers
             return Ok(lesson);
         }
 
-        // Update student lesson attendance (only for Admins and Staff)
+        // Update student lesson attendance 
         [HttpPut("{studentId}/{lessonId}")]
         [Authorize(Roles = "Admin, Staff, Lecturer")]
         public async Task<IActionResult> UpdateStudentLessonAttendance(int studentId, int lessonId, [FromBody] StudentLesson studentLesson)
