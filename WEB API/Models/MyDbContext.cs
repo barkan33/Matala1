@@ -1,4 +1,5 @@
 ﻿using Matala1.Models.Entities;
+using Matala1.Models.Entitys;
 using Microsoft.EntityFrameworkCore;
 
 namespace Matala1.Models
@@ -30,6 +31,7 @@ namespace Matala1.Models
         public DbSet<StudentLesson> StudentLessons { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<WeekDay> WeekDays { get; set; }
+        public DbSet<Notice> Notices { get; set; }
 
     }
 }
