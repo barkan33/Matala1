@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Matala1.csproj": {}
+    "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Matala1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Matala1.csproj": {
+    "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Matala1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Matala1.csproj",
+        "projectUniqueName": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Matala1.csproj",
         "projectName": "Matala1",
-        "projectPath": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Matala1.csproj",
-        "packagesPath": "C:\\Users\\misha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\obj\\",
+        "projectPath": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Matala1.csproj",
+        "packagesPath": "C:\\Users\\sergb\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\misha\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\sergb\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -96,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
