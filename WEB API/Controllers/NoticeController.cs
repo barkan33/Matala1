@@ -10,12 +10,12 @@ using System.Text.Json.Serialization;
 
 
 namespace Matala1.Controllers
-{    
-        [ApiController]
+{
+    [ApiController]
     [Authorize]
     [Route("api/[controller]")]
-        public class NoticeController : ControllerBase
-        {
+    public class NoticeController : ControllerBase
+    {
         private readonly MyDbContext _context;
         public NoticeController(MyDbContext context)
         {
@@ -24,14 +24,14 @@ namespace Matala1.Controllers
 
         // Get all notices
         [HttpGet]
-            public async Task<IActionResult> GetAllNotices()
-            {
-                var notices = await _context.Notices.ToListAsync();
+        public async Task<IActionResult> GetAllNotices()
+        {
+            var notices = await _context.Notices.ToListAsync();
 
-                if (notices == null)
-                {
-                    return NotFound("No notices found.");
-                }
+            if (notices == null)
+            {
+                return NotFound("No notices found.");
+            }
 
 
 
@@ -41,103 +41,103 @@ namespace Matala1.Controllers
             };
 
             return Ok(JsonSerializer.Serialize(notices, options));
+        }
+
+        // Get notice by ID
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetNoticeById(int id)
+        {
+            var notice = await _context.Notices.FindAsync(id);
+
+            if (notice == null)
+            {
+                return NotFound("Notice not found.");
             }
 
-            // Get notice by ID
-            [HttpGet("{id}")]
-            public async Task<IActionResult> GetNoticeById(int id)
+            var options = new JsonSerializerOptions
             {
-                var notice = await _context.Notices.FindAsync(id);
+                ReferenceHandler = ReferenceHandler.IgnoreCycles
+            };
 
-                if (notice == null)
-                {
-                    return NotFound("Notice not found.");
-                }
+            return Ok(JsonSerializer.Serialize(notice, options));
+        }
 
-                var options = new JsonSerializerOptions
-                {
-                    ReferenceHandler = ReferenceHandler.IgnoreCycles
-                };
-
-                return Ok(JsonSerializer.Serialize(notice, options));
+        // Create a new notice (only for Admin)
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> CreateNotice([FromBody] Notice notice)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
             }
 
-            // Create a new notice (only for Admin)
-            [HttpPost]
-            [Authorize(Roles = "Admin")]
-            public async Task<IActionResult> CreateNotice([FromBody] Notice notice)
-            {
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
+            _context.Notices.Add(notice);
+            await _context.SaveChangesAsync();
 
-                _context.Notices.Add(notice);
+            return Ok("Notice created successfully");
+        }
+
+        // Update a notice (only for Admin)
+        [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> UpdateNotice(int id, [FromBody] Notice notice)
+        {
+            if (id != notice.NoticeID)
+            {
+                return BadRequest("Notice ID mismatch.");
+            }
+
+            var existingNotice = await _context.Notices.FindAsync(id);
+
+            if (existingNotice == null)
+            {
+                return NotFound("Notice not found.");
+            }
+
+            _context.Entry(existingNotice).CurrentValues.SetValues(notice);
+
+            try
+            {
                 await _context.SaveChangesAsync();
-
-                return Ok("Notice created successfully");
             }
-
-            // Update a notice (only for Admin)
-            [HttpPut("{id}")]
-            [Authorize(Roles = "Admin")]
-            public async Task<IActionResult> UpdateNotice(int id, [FromBody] Notice notice)
+            catch (DbUpdateConcurrencyException)
             {
-                if (id != notice.NoticeID)
+                if (!NoticeExists(id))
                 {
-                    return BadRequest("Notice ID mismatch.");
+                    return NotFound("Notice no longer exists.");
                 }
-
-                var existingNotice = await _context.Notices.FindAsync(id);
-
-                if (existingNotice == null)
+                else
                 {
-                    return NotFound("Notice not found.");
+                    throw;
                 }
-
-                _context.Entry(existingNotice).CurrentValues.SetValues(notice);
-
-                try
-                {
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!NoticeExists(id))
-                    {
-                        return NotFound("Notice no longer exists.");
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-
-                return NoContent();
             }
 
-            // Delete a notice (only for Admin)
-            [HttpDelete("{id}")]
-            [Authorize(Roles = "Admin")]
-            public async Task<IActionResult> DeleteNotice(int id)
+            return NoContent();
+        }
+
+        // Delete a notice (only for Admin)
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteNotice(int id)
+        {
+            var notice = await _context.Notices.FindAsync(id);
+
+            if (notice == null)
             {
-                var notice = await _context.Notices.FindAsync(id);
-
-                if (notice == null)
-                {
-                    return NotFound("Notice not found.");
-                }
-
-                _context.Notices.Remove(notice);
-                await _context.SaveChangesAsync();
-
-                return NoContent();
+                return NotFound("Notice not found.");
             }
 
-            // Helper function to check if a notice exists
-            private bool NoticeExists(int id)
-            {
-                return _context.Notices.Any(n => n.NoticeID == id);
-            }
+            _context.Notices.Remove(notice);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        // Helper function to check if a notice exists
+        private bool NoticeExists(int id)
+        {
+            return _context.Notices.Any(n => n.NoticeID == id);
         }
     }
+}

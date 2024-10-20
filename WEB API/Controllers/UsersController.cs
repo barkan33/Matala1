@@ -77,7 +77,6 @@ namespace Matala1.Controllers
 
             var claims = new[]
             {
-                //new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Role, user.UserRole.ToString()),
             };

@@ -1,41 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\",
+  "WorkspaceRootPath": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\sergb\\onedrive\\documents\\github\\matala1\\web api\\controllers\\noticecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:controllers\\noticecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\sergb\\onedrive\\documents\\github\\matala1\\web api\\models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\sergb\\onedrive\\documents\\github\\matala1\\web api\\models\\utilitymodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:models\\utilitymodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\sergb\\onedrive\\documents\\github\\matala1\\web api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\sergb\\onedrive\\documents\\github\\matala1\\web api\\models\\entitys\\notice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:models\\entitys\\notice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\controllers\\noticecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:controllers\\noticecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\sergb\\onedrive\\documents\\github\\matala1\\web api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\sergb\\onedrive\\documents\\github\\matala1\\web api\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\sergb\\onedrive\\documents\\github\\matala1\\web api\\controllers\\passwordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\controllers\\passwordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:controllers\\passwordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\sergb\\onedrive\\documents\\github\\matala1\\web api\\controllers\\studentlessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|c:\\users\\misha\\onedrive\\desktop\\server side\\matala1\\web api\\controllers\\studentlessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{55244A64-BFA0-4EF4-A428-F347DEE68A21}|Matala1.csproj|solutionrelative:controllers\\studentlessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -50,17 +42,17 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Controllers\\UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
-              "ToolTip": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\UsersController.cs",
               "RelativeToolTip": "Controllers\\UsersController.cs",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAgwIMAAAAZAAAAAAAAAA==",
+              "ViewState": "AQIAABEAAAAAAAAAAADwvxYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-19T16:40:09.818Z",
               "EditorCaption": ""
@@ -72,42 +64,25 @@
           "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "StudentLessonController.cs",
-              "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\StudentLessonController.cs",
-              "RelativeDocumentMoniker": "Controllers\\StudentLessonController.cs",
-              "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\StudentLessonController.cs",
-              "RelativeToolTip": "Controllers\\StudentLessonController.cs",
-              "ViewState": "AQIAAIYAAAAAAAAAAAAcwKMAAAArAAAA",
+              "DocumentIndex": 1,
+              "Title": "NoticeController.cs",
+              "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\NoticeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\NoticeController.cs",
+              "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\NoticeController.cs",
+              "RelativeToolTip": "Controllers\\NoticeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-19T15:45:50.44Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Notice.cs",
-              "DocumentMoniker": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Models\\Entitys\\Notice.cs",
-              "RelativeDocumentMoniker": "Models\\Entitys\\Notice.cs",
-              "ToolTip": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Models\\Entitys\\Notice.cs",
-              "RelativeToolTip": "Models\\Entitys\\Notice.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T15:41:33.98Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "PasswordController.cs",
-              "DocumentMoniker": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Controllers\\PasswordController.cs",
+              "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\PasswordController.cs",
               "RelativeDocumentMoniker": "Controllers\\PasswordController.cs",
-              "ToolTip": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Controllers\\PasswordController.cs",
+              "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\PasswordController.cs",
               "RelativeToolTip": "Controllers\\PasswordController.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -116,36 +91,22 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UtilityModels.cs",
-              "DocumentMoniker": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Models\\UtilityModels.cs",
-              "RelativeDocumentMoniker": "Models\\UtilityModels.cs",
-              "ToolTip": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Models\\UtilityModels.cs",
-              "RelativeToolTip": "Models\\UtilityModels.cs",
-              "ViewState": "AgIAAAYBAAAAAAAAAAA7wA4AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T13:23:56.297Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "MyDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Models\\MyDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Models\\MyDbContext.cs",
               "RelativeDocumentMoniker": "Models\\MyDbContext.cs",
-              "ToolTip": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Models\\MyDbContext.cs",
+              "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Models\\MyDbContext.cs",
               "RelativeToolTip": "Models\\MyDbContext.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAywCEAAAAkAAAAAAAAAA==",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAowCEAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T13:21:17.926Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-12T13:21:17.926Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\appsettings.json",
+              "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -153,11 +114,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "StudentLessonController.cs",
-              "DocumentMoniker": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Controllers\\StudentLessonController.cs",
+              "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\StudentLessonController.cs",
               "RelativeDocumentMoniker": "Controllers\\StudentLessonController.cs",
-              "ToolTip": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Controllers\\StudentLessonController.cs",
+              "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\StudentLessonController.cs",
               "RelativeToolTip": "Controllers\\StudentLessonController.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAQwJIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -165,11 +126,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "LessonController.cs",
-              "DocumentMoniker": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Controllers\\LessonController.cs",
+              "DocumentMoniker": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\LessonController.cs",
               "RelativeDocumentMoniker": "Controllers\\LessonController.cs",
-              "ToolTip": "C:\\Users\\sergb\\OneDrive\\Documents\\GitHub\\Matala1\\WEB API\\Controllers\\LessonController.cs",
+              "ToolTip": "C:\\Users\\misha\\OneDrive\\Desktop\\Server Side\\Matala1\\WEB API\\Controllers\\LessonController.cs",
               "RelativeToolTip": "Controllers\\LessonController.cs",
               "ViewState": "AgIAAD0AAAAAAAAAAAAkwDcAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
