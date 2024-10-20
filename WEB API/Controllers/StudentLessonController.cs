@@ -147,6 +147,33 @@ namespace Matala1.Controllers
 
             return Created();
         }
+
+        [HttpDelete]
+        [Authorize(Roles = "Lecturer")]
+        public async Task<IActionResult> DeleteStudentLesson(int studentId, int lessonId, DateTime lessonDate)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var existingEntry = await _context.StudentLessons
+                .FirstOrDefaultAsync(sl =>
+                    sl.StudentId == studentId &&
+                    sl.LessonId == lessonId &&
+                    sl.LessonDate == lessonDate);
+
+            if (existingEntry == null)
+            {
+                return BadRequest("A record for this student and lesson on this date doesn't exists.");
+            }
+
+            _context.StudentLessons.Remove(existingEntry);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
         // Helper function to check if a student lesson exists
         private bool StudentLessonExists(int studentId, int lessonId, DateTime lessonDate)
         {
